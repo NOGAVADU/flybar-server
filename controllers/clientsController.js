@@ -18,8 +18,12 @@ class ClientsController {
     }
 
     async getAll(req, res) {
-        const clients = await Client.findAll()
-        return res.json(clients);
+        try {
+            const clients = await Client.findAll()
+            return res.json(clients);
+        } catch (e) {
+            res.json('Ошибка подключения к бд')
+        }
     }
 
     async delete(req, res) {
