@@ -11,13 +11,12 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Разрешить запросы со всех доменов
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Разрешить различные HTTP методы
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Разрешить различные заголовки
-    next();
-});
-app.use(cors());
+
+const corsOptions = {
+    origins: ["http://flybar.ru", "https://flybar.ru"]
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
