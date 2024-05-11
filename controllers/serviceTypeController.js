@@ -12,7 +12,6 @@ class ServiceTypeController {
 
     async clearAll(req, res) {
         const { id } = req.body;
-        console.log(id);
         const type = await ServiceType.destroy({ where: { typeId: id } });
         return res.json(type);
     }
