@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 const corsOptions = {
-    origins: ["http://www.flybar.ru", "https://www.flybar.ru"]
+    origins: ["http://www.flybar.ru", "https://www.flybar.ru", "http://flybar.ru", "https://flybar.ru"]
 }
 
 app.use(cors(corsOptions));
